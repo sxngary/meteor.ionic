@@ -1,19 +1,5 @@
 import { CollectionObject } from './collection-object.model';
 
-export interface Csv extends CollectionObject {
-    stats: {
-        total: number;
-        processed: number;
-        success: number;
-        failed: number;
-        isProcessing: boolean;
-        isPending: boolean;
-        isCompleted: boolean;
-        startedAt: Date;
-        completedAt: Date;
-    }
-}
-
 export interface Patient extends CollectionObject {
     csvId: string;
     firstName: string;
@@ -22,6 +8,9 @@ export interface Patient extends CollectionObject {
     email: string;
     gender: string;
     address: string;
+    city: string;
+    state: string;
+    zip: string;
     phoneNum: number;
     groupId: number;
     personalId: number;
