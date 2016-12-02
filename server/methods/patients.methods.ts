@@ -28,6 +28,16 @@ Meteor.methods({
         if (patientCode) {
             var patientData = Patients.collection.findOne({accessCode:patientCode, userId: {$exists: false}, "status.isDeleted":false });
             if (patientData) {
+                patientObj['profile']["dob"] = patientData.dob;
+                patientObj['profile']["gender"] = patientData.gender;
+                patientObj['profile']["phoneNum"] = patientData.phoneNum;
+                patientObj['profile']["address"] = patientData.address;
+                patientObj['profile']["city"] = patientData.city;
+                patientObj['profile']["state"] = patientData.state;
+                patientObj['profile']["zip"] = patientData.zip;
+                patientObj['profile']["company"] = patientData.company;
+                patientObj['profile']["insurer"] = patientData.insurer;
+                patientObj['profile']["guarantor"] = patientData.guarantor;
                 var userId = Accounts.createUser(patientObj);
                 if (userId) {
                     let getCode = Patients.update({_id:patientData._id},{$set:{userId:userId}});
@@ -42,6 +52,22 @@ Meteor.methods({
             }
         }else{
             throw new Meteor.Error(403, "Access code not matched.");
+        }
+    },
+    
+    //-------------user profile data-----------------//
+    "userProfile":(userId) => {
+        //console.log(userId,'userId');
+        if (userId != undefined) {
+            var patientData = Meteor.users.findOne({_id: userId});
+            //var patientData = Patients.collection.findOne({userId: userId});
+            if (patientData) {
+                return patientData;
+            }else{
+                throw new Meteor.Error(403, "Access code not matched.");
+            }
+        }else{
+            return;
         }
     },
 

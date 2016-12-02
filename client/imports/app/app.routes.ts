@@ -7,6 +7,7 @@ import {RecoverComponent} from "./auth/recover.component";
 import {LoginComponent} from "./auth/login.component.web";
 import {DashboardComponent} from "./dashboard/dashboard.component";
 import {LandingComponent} from "./layout/landing.component";
+import {PatientDetailsComponent} from "./patient/details.component";
 
 let mainRoutes = [
     { path: '', component: LandingComponent/*, canActivate: ['canActivateForLogoff']*/ },
@@ -14,7 +15,8 @@ let mainRoutes = [
     { path: 'login', component: LoginComponent },
     { path: 'signup', component: SignupComponent },
     { path: 'signup/:code', component: SignupComponent },
-    { path: 'recover', component: RecoverComponent }
+    { path: 'recover', component: RecoverComponent },
+    { path: 'profile', component: PatientDetailsComponent, canActivate: ['canActivateForLoggedIn'] },
 ];
 
 export const routes: Route[] = [

@@ -1,0 +1,68 @@
+    <!--main container-->
+    <section *ngIf="patient">
+        <!--Patient Detail Page-->
+        <h2>Profile</h2>
+        <section class="col s12 pt-detail bt-shadow">
+            <section class="detail-pic-pateint col s3">
+                <img src="images/deatil-pateint.png" class="responsive-img" alt="">
+            </section>
+            <section class="col s9 content-ptdetail ">
+                <h2>{{patient.profile.firstName}} {{patient.profile.lastName}}</h2>
+                <ul>
+                    <li><i class="zmdi zmdi-link"></i><a href="javascript:void(0);">{{patient.emails[0].address}}</a></li>
+                    <li class="robotofont"><i class="zmdi zmdi-phone"></i>{{patient.profile.phoneNum}}</li>
+                </ul>
+                <a class="btn-floating  waves-effect waves-light blue detailedit" [routerLink]="['/patients/edit', patient._id]"><i class="material-icons">mode_edit</i></a>
+            </section>
+
+            <section class="patient-gendetail col s12">
+                <!--patient general detail-->
+                <ul>
+                    <li>
+                        <label>D.O.B</label>
+                        <span>{{patient.profile.dob | date}}</span>
+                    </li>
+                    <li>
+                        <label>Gender</label>
+                        <span>{{patient.profile.gender}}</span>
+                    </li>
+                    <li>
+                        <label>Company</label>
+                        <span class="robotofont">{{patient.profile.company}}</span>
+                    </li>
+
+                    <li>
+                        <label>Address</label>
+                        <span class="robotofont">{{patient.profile.address}}</span>
+                    </li>
+                    <li>
+                        <label>State</label>
+                        <span>{{patient.profile.state}}</span>
+                    </li>
+                    <li>
+                        <label>City</label>
+                        <span class="robotofont">{{patient.profile.city}}</span>
+                    </li>
+
+                    <li>
+                        <label>Zip</label>
+                        <span class="robotofont">{{patient.profile.zip}}</span>
+                    </li>
+                    <li>
+                        <label>Insurer</label>
+                        <span>{{patient.profile.insurer}}</span>
+                    </li>
+                    <li>
+                        <label>Guarantor</label>
+                        <span class="robotofont">{{patient.profile.guarantor}}</span>
+                    </li>
+                    
+                </ul>
+                <p *ngIf="!patient.bio" class="col s12">Please enter your biography.</p>
+                <p *ngIf="patient.bio" class="col s12">{{patient.bio}}</p>
+            </section>
+            
+        </section>
+        <!--request button-->
+
+    </section>

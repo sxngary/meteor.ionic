@@ -7,32 +7,32 @@
       <form class="col s12" [formGroup]="signupForm" (ngSubmit)="signup()">
 
         <div class="input-field col s12">
-            <input formControlName="firstName" name="firstName" id="firstName" type="text" [ngClass]="{'invalid':signupForm.controls['firstName'].touched && !signupForm.controls['firstName'].valid}"></input>
-            <label for="firstName" class="active">First Name</label>
+            <input formControlName="firstName" id="firstName" type="text" [ngClass]="{'invalid':signupForm.controls['firstName'].touched && !signupForm.controls['firstName'].valid}"></input>
+            <label for="firstName" class="active" style="transform: translateY(-140%);">First Name</label>
             
             <p class="error" [hidden]="!(signupForm.controls['firstName'].touched && !signupForm.controls['firstName'].valid)">Please type correct value.</p>
         </div>
 
         <div class="input-field col s12">
-            <input formControlName="lastName" type="text"></input>
-            <label for="lastName" class="active">Last Name</label>
+            <input formControlName="lastName" id="lastName" type="text"></input>
+            <label for="lastName" class="active" style="transform: translateY(-140%);">Last Name</label>
             <p class="error" [hidden]="!(signupForm.controls['firstName'].touched && !signupForm.controls['firstName'].valid)">Please e correct value.</p>
         </div>
 
         <div class="input-field col s12">
-            <input formControlName="email" type="email"></input>
-            <label for="email" class="active">Email</label>
+            <input formControlName="email" id="email" type="email"></input>
+            <label for="email" class="active" style="transform: translateY(-140%);">Email</label>
             <p class="error" [hidden]="!(signupForm.controls['email'].touched && !signupForm.controls['email'].valid)">Please type correct value.</p>
         </div>
 
         <div class="input-field col s12">
             <input formControlName="password" type="password"></input> 
-            <label for="password" class="active">Password</label>
+            <label for="password" class="active" >Password</label>
             <p class="error" [hidden]="!(signupForm.controls['email'].touched && !signupForm.controls['email'].valid)">Please type correct value.</p>
         </div>
         <div class="input-field col s12">
-            <input formControlName="accessCode" type="text"></input> 
-            <label for="accessCode" class="active">Access Code</label>
+            <input formControlName="accessCode" id="accessCode" type="text"></input> 
+            <label for="accessCode" class="active" style="transform: translateY(-140%);">Access Code</label>
             <p class="error" [hidden]="!(signupForm.controls['email'].touched && !signupForm.controls['email'].valid)">Please type correct value.</p>
         </div>
 
