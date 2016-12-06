@@ -4,15 +4,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { AccountsModule } from 'angular2-meteor-accounts-ui';
 import { Ng2PaginationModule } from 'ng2-pagination';
-import {LocalStorageService, LOCAL_STORAGE_SERVICE_CONFIG} from "angular-2-local-storage";
+import { LocalStorageService, LOCAL_STORAGE_SERVICE_CONFIG } from "angular-2-local-storage";
+import { FileDropModule } from "angular2-file-drop";
 
 import { AppComponent } from "./app.component.web";
 import { routes, ROUTES_PROVIDERS } from './app.routes';
 import { SHARED_DECLARATIONS } from './shared';
-import {AUTH_DECLARATIONS} from "./auth/index";
+import { AUTH_DECLARATIONS } from "./auth/index";
 import { LAYOUT_DECLARATIONS } from "./layout/index";
-import {FileDropModule} from "angular2-file-drop";
-import {DASHBOARD_DECLARATIONS} from "./dashboard/index";
+import { INDEX_DECLARATIONS } from "./index";
 
 // Create config options (see ILocalStorageServiceConfigOptions) for deets:
 let localStorageServiceConfig = {
@@ -36,7 +36,7 @@ moduleDefinition = {
     AppComponent,
     ...SHARED_DECLARATIONS,
     ...AUTH_DECLARATIONS,
-    ...DASHBOARD_DECLARATIONS,
+    ...INDEX_DECLARATIONS,
     ...LAYOUT_DECLARATIONS
   ],
   providers: [

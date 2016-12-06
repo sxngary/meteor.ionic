@@ -1,0 +1,19 @@
+    <!--main container-->
+    <section *ngIf="agreementData">
+        <h2>Agreements</h2>
+        <section class="col s12 pt-detail bt-shadow">
+            
+            <!--<h2 *ngFor="let items of agreementData | async">{{items.agreementName}}</h2>-->
+            <section class="col s12 wht-bg mar-tp5 mar-bt5 bt-shadow" *ngFor="let items of agreementData | async" >
+                <section class="pateint-list">
+                    <section class="col s10">
+                        <h2 class="pateint-name"><a >{{items.agreementName}}</a></h2>
+                        <address class="col s12">
+                            <i class="zmdi zmdi-pin"></i> {{items.agreementTitle}}
+                        </address>
+                    </section>
+                </section>
+            </section>
+            
+        </section>
+    </section>

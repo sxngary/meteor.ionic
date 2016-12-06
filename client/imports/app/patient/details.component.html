@@ -9,8 +9,8 @@
             <section class="col s9 content-ptdetail ">
                 <h2>{{patient.profile.firstName}} {{patient.profile.lastName}}</h2>
                 <ul>
-                    <li><i class="zmdi zmdi-link"></i><a href="javascript:void(0);">{{patient.emails[0].address}}</a></li>
-                    <li class="robotofont"><i class="zmdi zmdi-phone"></i>{{patient.profile.phoneNum}}</li>
+                    <li><i class="zmdi zmdi-link"></i>{{patient.emails[0].address}}</li>
+                    <li><i class="zmdi zmdi-phone"></i>{{patient.profile.phoneNum}}</li>
                 </ul>
                 <a class="btn-floating  waves-effect waves-light blue detailedit" [routerLink]="['/patients/edit', patient._id]"><i class="material-icons">mode_edit</i></a>
             </section>

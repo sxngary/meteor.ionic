@@ -25,9 +25,9 @@ accounts-password
 tmeasday:publish-counts
 check
 email
-jalik:ufs
-jalik:ufs-local
-jalik:ufs-gridfs
+#jalik:ufs
+#jalik:ufs-local
+#jalik:ufs-gridfs
 mys:accounts-phone
 mys:fonts
 themeteorchef:bert
