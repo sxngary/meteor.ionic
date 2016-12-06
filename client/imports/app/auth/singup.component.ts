@@ -31,7 +31,7 @@ export class SignupComponent extends MeteorComponent implements OnInit {
         }
 
   ngOnInit() {
-    
+    var emailRegex = "[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})";
     this.paramsSub = this.route.params
         .map(params => params['code'])
         .subscribe(code => {
@@ -48,7 +48,7 @@ export class SignupComponent extends MeteorComponent implements OnInit {
                             firstName: [patient.firstName, Validators.compose([Validators.required, Validators.pattern("[a-zA-Z ]{2,30}")]) ],
                             lastName: [patient.lastName, Validators.compose([Validators.required, Validators.pattern("[a-zA-Z ]{2,30}")]) ],
                             password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
-                            email: [patient.email, Validators.required],
+                            email: [patient.email, Validators.compose([Validators.pattern(emailRegex), Validators.required])],
                             accessCode: [patient.accessCode, Validators.compose([Validators.minLength(6), Validators.required])],
                         });
                     }
@@ -57,11 +57,11 @@ export class SignupComponent extends MeteorComponent implements OnInit {
         });
         
         this.signupForm = this.formBuilder.group({
-            email: ['', Validators.required],
+            email: ['', Validators.compose([Validators.pattern(emailRegex), Validators.required])],
             password: ['', Validators.compose([Validators.required, Validators.minLength(6)]) ],
-            firstName: ['', Validators.required],
-            lastName: ['', Validators.required],
-            accessCode:['', Validators.required],
+            firstName: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-Z ]{2,30}")])],
+            lastName: ['', Validators.compose([Validators.required, Validators.pattern("[a-zA-Z ]{2,30}")])],
+            accessCode:['', Validators.compose([Validators.minLength(6), Validators.required])],
         });
 
     this.error = '';
