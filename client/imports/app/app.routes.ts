@@ -8,7 +8,8 @@ import { LoginComponent } from "./auth/login.component.web";
 import { DashboardComponent } from "./dashboard/dashboard.component";
 import { LandingComponent } from "./layout/landing.component";
 import { PatientDetailsComponent } from "./patient/details.component";
-import { AgreementsComponent } from "./agreements/agreements.component"
+import { AgreementsComponent } from "./agreements/agreements.component";
+import { ViewAgreementComponent } from "./agreements/view-agreement.component";
 
 let mainRoutes = [
     { path: '', component: LandingComponent/*, canActivate: ['canActivateForLogoff']*/ },
@@ -19,6 +20,7 @@ let mainRoutes = [
     { path: 'recover', component: RecoverComponent },
     { path: 'profile', component: PatientDetailsComponent, canActivate: ['canActivateForLoggedIn'] },
     { path: 'agreements', component: AgreementsComponent, canActivate: ['canActivateForLoggedIn'] },
+    { path: 'agreements/:agreementId', component: ViewAgreementComponent, canActivate: ['canActivateForLoggedIn'] },
 ];
 
 export const routes: Route[] = [

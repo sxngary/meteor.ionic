@@ -38,13 +38,13 @@ export class AgreementsComponent extends MeteorComponent implements OnInit {
     ngOnInit() {
         
         //console.log(Meteor.user(),'sssss',this.user,Meteor.userId());
-       //----------------patient profile data------------------//
-        this.call("userProfile", Meteor.userId(), (err, res)=> {
+       //----------------patient agreements list------------------//
+        this.call("assignAgreements", Meteor.userId(), (err, res)=> {
             if (err) {
                 showAlert("Error while fetching patient data.", "danger");
                 return;
             }else{
-                this.patient = res;    
+                this.agreementData = res;    
             }
             
         });
