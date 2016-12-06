@@ -1,5 +1,5 @@
     <!--main container-->
-    <section *ngIf="patient">
+    <section *ngIf="user">
         <!--Patient Detail Page-->
         <h2>Profile</h2>
         <section class="col s12 pt-detail bt-shadow">
@@ -7,12 +7,12 @@
                 <img src="images/deatil-pateint.png" class="responsive-img" alt="">
             </section>
             <section class="col s9 content-ptdetail ">
-                <h2>{{patient.profile.firstName}} {{patient.profile.lastName}}</h2>
+                <h2>{{user.profile.firstName}} {{user.profile.lastName}}</h2>
                 <ul>
-                    <li><i class="zmdi zmdi-link"></i><a href="javascript:void(0);">{{patient.emails[0].address}}</a></li>
-                    <li class="robotofont"><i class="zmdi zmdi-phone"></i>{{patient.profile.phoneNum}}</li>
+                    <li><i class="zmdi zmdi-link"></i><a href="javascript:void(0);">{{user.emails[0].address}}</a></li>
+                    <li class="robotofont"><i class="zmdi zmdi-phone"></i>{{user.profile.phoneNum}}</li>
                 </ul>
-                <a class="btn-floating  waves-effect waves-light blue detailedit" [routerLink]="['/patients/edit', patient._id]"><i class="material-icons">mode_edit</i></a>
+                <a class="btn-floating  waves-effect waves-light blue detailedit" [routerLink]="['/patients/edit', user._id]"><i class="material-icons">mode_edit</i></a>
             </section>
 
             <section class="patient-gendetail col s12">
@@ -20,46 +20,46 @@
                 <ul>
                     <li>
                         <label>D.O.B</label>
-                        <span>{{patient.profile.dob | date}}</span>
+                        <span>{{user.profile.dob | date}}</span>
                     </li>
                     <li>
                         <label>Gender</label>
-                        <span>{{patient.profile.gender}}</span>
+                        <span>{{user.profile.gender}}</span>
                     </li>
                     <li>
                         <label>Company</label>
-                        <span class="robotofont">{{patient.profile.company}}</span>
+                        <span class="robotofont">{{user.profile.company}}</span>
                     </li>
 
                     <li>
                         <label>Address</label>
-                        <span class="robotofont">{{patient.profile.address}}</span>
+                        <span class="robotofont">{{user.profile.address}}</span>
                     </li>
                     <li>
                         <label>State</label>
-                        <span>{{patient.profile.state}}</span>
+                        <span>{{user.profile.state}}</span>
                     </li>
                     <li>
                         <label>City</label>
-                        <span class="robotofont">{{patient.profile.city}}</span>
+                        <span class="robotofont">{{user.profile.city}}</span>
                     </li>
 
                     <li>
                         <label>Zip</label>
-                        <span class="robotofont">{{patient.profile.zip}}</span>
+                        <span class="robotofont">{{user.profile.zip}}</span>
                     </li>
                     <li>
                         <label>Insurer</label>
-                        <span>{{patient.profile.insurer}}</span>
+                        <span>{{user.profile.insurer}}</span>
                     </li>
                     <li>
                         <label>Guarantor</label>
-                        <span class="robotofont">{{patient.profile.guarantor}}</span>
+                        <span class="robotofont">{{user.profile.guarantor}}</span>
                     </li>
                     
                 </ul>
-                <p *ngIf="!patient.bio" class="col s12">Please enter your biography.</p>
-                <p *ngIf="patient.bio" class="col s12">{{patient.bio}}</p>
+                <p *ngIf="!user.bio" class="col s12">Please enter your biography.</p>
+                <p *ngIf="user.bio" class="col s12">{{user.bio}}</p>
             </section>
             
         </section>
