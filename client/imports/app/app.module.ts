@@ -14,6 +14,8 @@ import { AUTH_DECLARATIONS } from "./auth/index";
 import { LAYOUT_DECLARATIONS } from "./layout/index";
 import { INDEX_DECLARATIONS } from "./index";
 
+import { ProviderService } from "../services/provider.service";
+
 // Create config options (see ILocalStorageServiceConfigOptions) for deets:
 let localStorageServiceConfig = {
     prefix: 'my-app',
@@ -44,7 +46,8 @@ moduleDefinition = {
     LocalStorageService,
       {
           provide: LOCAL_STORAGE_SERVICE_CONFIG, useValue: localStorageServiceConfig
-      }
+      },
+    ProviderService
   ],
   bootstrap: [
     AppComponent

@@ -3,8 +3,7 @@
         <h2>{{agreementData.agreementName}}</h2>
         <section class="col s12 pt-detail bt-shadow">
             <h2 class="pateint-name capitalize"><a >{{agreementData.agreementTitle}}</a></h2>
-            <address [innerHTML]="agreementData.agreementBody">
-                 {{agreementData.agreementBody}}
+            <address [innerHTML]="parseUserData(agreementData.agreementBody)">
             </address>
         </section>
     </section>

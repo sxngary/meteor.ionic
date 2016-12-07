@@ -26,8 +26,8 @@ Meteor.methods({
         
     },
     
-    "viewAgreements": (agreementId) => {
-        console.log(agreementId,'agreementId');
+    "viewAgreements": (agreementId): any => {
+        //console.log(agreementId,'agreementId');
         var agreements = Agreements.findOne({_id:agreementId, status:true,isDeleted:0});
        
         if (agreements) {

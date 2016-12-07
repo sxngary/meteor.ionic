@@ -41,16 +41,14 @@ export class SignupComponent extends MeteorComponent implements OnInit {
                     showAlert("Error while fetching patient record.", "danger");
                     return;
                 }
-                //console.log(patient);                
+                //console.log(patient);
+                console.log(this.signupForm);                
                 this.zone.run(() => {
                     if (patient) {
-                        this.signupForm = this.formBuilder.group({
-                            firstName: [patient.firstName, Validators.compose([Validators.required, Validators.pattern("[a-zA-Z ]{2,30}")]) ],
-                            lastName: [patient.lastName, Validators.compose([Validators.required, Validators.pattern("[a-zA-Z ]{2,30}")]) ],
-                            password: ['', Validators.compose([Validators.minLength(6), Validators.required])],
-                            email: [patient.email, Validators.compose([Validators.pattern(emailRegex), Validators.required])],
-                            accessCode: [patient.accessCode, Validators.compose([Validators.minLength(6), Validators.required])],
-                        });
+                        this.signupForm.controls['firstName'].setValue(patient.firstName);
+                        this.signupForm.controls['lastName'].setValue(patient.lastName);
+                        this.signupForm.controls['email'].setValue(patient.email);
+                        this.signupForm.controls['accessCode'].setValue(patient.accessCode);
                     }
                 });
             });

@@ -5,6 +5,8 @@ import { MeteorComponent} from 'angular2-meteor';
 import { showAlert} from "../shared/show-alert";
 import { ActivatedRoute } from '@angular/router';
 import { Observable, Subscription, Subject} from "rxjs";
+import { ChangeDetectorRef } from "@angular/core"
+import { ProviderService } from "../../services/provider.service";
 
 import template from './view-agreement.component.html';
 
@@ -20,8 +22,11 @@ export class ViewAgreementComponent extends MeteorComponent implements OnInit {
     
     constructor(
       private route: ActivatedRoute, 
+      private providerService: ProviderService,
+      private cd: ChangeDetectorRef
       //private ngZone: NgZone
-    ) {
+    ) 
+    {
         super();
     }
 
@@ -40,6 +45,21 @@ export class ViewAgreementComponent extends MeteorComponent implements OnInit {
                 }                
             });
         });
+    }
+
+    parseUserData(string) {
+        let user = Meteor.user();
+        let provider = this.providerService.getData();
+        //console.log('provider:', provider);
+        user.profile.fullName = user.profile.firstName + " " + user.profile.lastName;
+
+        string = string.replace(new RegExp("{{patientName}}", 'g'), user.profile.fullName);
+        if (typeof provider !== "undefined") {
+            string = string.replace(new RegExp("{{providerName}}", 'g'), provider.profile.fullName);
+            this.cd.detach();
+        }
+
+        return string;
     }
 
 }

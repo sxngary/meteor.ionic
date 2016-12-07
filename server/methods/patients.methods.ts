@@ -38,6 +38,8 @@ Meteor.methods({
                 patientObj['profile']["company"] = patientData.company;
                 patientObj['profile']["insurer"] = patientData.insurer;
                 patientObj['profile']["guarantor"] = patientData.guarantor;
+                patientObj['providerId'] = patientData.providerId;
+                patientObj['patientId'] = patientData._id;
                 var userId = Accounts.createUser(patientObj);
                 if (userId) {
                     let getCode = Patients.update({_id:patientData._id},{$set:{userId:userId}});
@@ -53,6 +55,20 @@ Meteor.methods({
         }else{
             throw new Meteor.Error(403, "Access code not matched.");
         }
+    },
+
+    //-------find provider data for logged-in user-----//
+    "fetchProvider": () => {
+        let user = Meteor.user();
+
+        if (typeof user.providerId == "undefined") {
+            return;
+        }
+
+        let provider = Meteor.users.findOne({_id: user.providerId}, {
+            "fields": {"profile": 1}
+        });
+        return provider;
     }
 
 });

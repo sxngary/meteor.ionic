@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 //import { Roles } from 'meteor/alanning:roles';
 
@@ -24,6 +25,14 @@ Accounts.onCreateUser(function(options, user) {
    }
    // user type
    user.type = options.type || "standard";
+   // patient-id
+   if (typeof options.patientId !== "undefined") {
+       user.patientId = options.patientId;
+   }
+   // provider-user-id
+   if (typeof options.providerId !== "undefined") {
+       user.providerId = options.providerId;
+   }
 
    // Returns the user object
    return user;
