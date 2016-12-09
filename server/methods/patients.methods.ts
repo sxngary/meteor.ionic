@@ -30,6 +30,7 @@ Meteor.methods({
             if (patientData) {
                 patientObj['profile']["dob"] = patientData.dob;
                 patientObj['profile']["gender"] = patientData.gender;
+                patientObj['profile']["ssn"] = patientData.ssn;
                 patientObj['profile']["phoneNum"] = patientData.phoneNum;
                 patientObj['profile']["address"] = patientData.address;
                 patientObj['profile']["city"] = patientData.city;

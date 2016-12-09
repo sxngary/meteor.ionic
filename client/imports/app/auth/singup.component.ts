@@ -18,7 +18,7 @@ export class SignupComponent extends MeteorComponent implements OnInit {
   error: string;
   code: string;
   paramsSub: Subscription;
-  //patientObj:any[];
+  patient: any[];
   //patientCode: String;
 
   constructor(
@@ -41,8 +41,7 @@ export class SignupComponent extends MeteorComponent implements OnInit {
                     showAlert("Error while fetching patient record.", "danger");
                     return;
                 }
-                //console.log(patient);
-                console.log(this.signupForm);                
+                this.patient = patient;                
                 this.zone.run(() => {
                     if (patient) {
                         this.signupForm.controls['firstName'].setValue(patient.firstName);
