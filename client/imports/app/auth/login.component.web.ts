@@ -1,7 +1,10 @@
 import {Component, OnInit, NgZone} from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { Meteor } from 'meteor/meteor';
+import {SignupComponent} from "./signup.component";
+import {RecoverComponent} from "./recover.component";
+import { DashboardComponent } from "../dashboard/dashboard.component";
 
 import template from './login.component.web.html';
 
@@ -10,10 +13,13 @@ import template from './login.component.web.html';
   template
 })
 export class LoginComponent implements OnInit {
+    signup = SignupComponent;
+    recover = RecoverComponent;
+
     loginForm: FormGroup;
     error: string;
   
-    constructor(private router: Router, private zone: NgZone, private formBuilder: FormBuilder) {}
+    constructor(private navCtrl: NavController, private navParams: NavParams, private zone: NgZone, private formBuilder: FormBuilder) {}
   
     ngOnInit() {
         var emailRegex = "[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})";
@@ -33,7 +39,7 @@ export class LoginComponent implements OnInit {
                       this.error = err;
                     });
                 } else {
-                    this.router.navigate(['/dashboard']);
+                    this.navCtrl.push(DashboardComponent);
                 }
             });
         }

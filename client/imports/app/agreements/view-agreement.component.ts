@@ -1,4 +1,5 @@
 import { Component, OnInit, NgZone } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { Meteor } from 'meteor/meteor';
 import { InjectUser } from 'angular2-meteor-accounts-ui';
 import { MeteorComponent} from 'angular2-meteor';
@@ -21,10 +22,10 @@ export class ViewAgreementComponent extends MeteorComponent implements OnInit {
     paramsSub: Subscription;
     
     constructor(
-      private route: ActivatedRoute, 
+      private navCtrl: NavController, 
+      private navParams: NavParams,
       private providerService: ProviderService,
       private cd: ChangeDetectorRef
-      //private ngZone: NgZone
     ) 
     {
         super();
@@ -32,18 +33,15 @@ export class ViewAgreementComponent extends MeteorComponent implements OnInit {
 
     ngOnInit() {
         //----------------patient agreements data------------------//
-        this.paramsSub = this.route.params
-            .map(params => params['agreementId'])
-            .subscribe(agreementId => {
-            this.agreementId = agreementId;
-            this.call("viewAgreements", this.agreementId, (err, res)=> {
-                if (err) {
-                    showAlert("Error while fetching patient data.", "danger");
-                    return;
-                }else{
-                    this.agreementData = res;    
-                }                
-            });
+        this.agreementId = this.navParams.get("agreementId");
+        
+        this.call("viewAgreements", this.agreementId, (err, res)=> {
+            if (err) {
+                showAlert("Error while fetching patient data.", "danger");
+                return;
+            }else{
+                this.agreementData = res;    
+            }                
         });
     }
 

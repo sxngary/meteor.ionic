@@ -1,40 +1,45 @@
-<div class="row" >
-    <h2 class="header red-text text-lighten-1">
+<ion-header class="sign_in_head">
+  <ion-navbar>
+    <div class="top_title">
       Recover Your Password
-    </h2>
+    </div>
+  </ion-navbar>
+</ion-header>
 
-    <div class="row">
+<ion-content class="content1">
+  <div class="signin_content">
+    <div class="upper_con">
+      <div class="logo1_dv">
+        <img alt="" src="../assets/img/logo.png">
+      </div>
+
       <form class="col s12" [formGroup]="recoverForm" #f="ngForm" (ngSubmit)="recover()">
-
-        <div class="input-field col s12">
-            <input formControlName="email" id="email" type="email"></input>
-            <label for="email" style="transform: translateY(-140%);">Email</label>
-            <div *ngIf="recoverForm.controls['email'].errors && recoverForm.controls['email'].touched" class="error">
+      <div class="login_sec">
+        <ion-list>
+          <ion-item>
+            <ion-input formControlName="email" type="text" placeholder="Email"></ion-input>
+          </ion-item>
+          <div *ngIf="recoverForm.controls['email'].errors && recoverForm.controls['email'].touched" class="error">
                 <div [hidden]="!recoverForm.controls['email'].errors.required">Email is required.</div>
                 <div [hidden]="!recoverForm.controls['email'].errors.pattern">Invalid email address.</div>
             </div>
-        </div>
+            <br />
+        </ion-list>
 
-        <div class="row">
-          <div class="col s12">
-            <button class="btn waves-effect waves-light" type="submit" name="action" [disabled]="!recover.valid">Recover
-              <i class="material-icons right">send</i>
-            </button>
-          </div>
+        <div [hidden]="error == ''">
+          <p class="md-warn" layout="row" layout-fill layout-padding layout-margin>
+            <p class="md-body-1">{{ error }}</p>
+          </p>
         </div>
-
-        <div class="row">
-          <div class="col s12">
-            <a [routerLink]="['/login']">Login</a>
-          </div>
-        </div>
-      </form>
-
-      <div [hidden]="error == ''">
-        <p class="md-warn" layout="row" layout-fill layout-padding layout-margin>
-          <p class="md-body-1">{{ error }}</p>
-        </p>
       </div>
 
+      <div class="sign_in_btn">
+        <button ion-button block [disabled]="!recoverForm.valid">Sign In</button>
+      </div>
+      </form>
+
+      <span class="forgot_pass"><a [navPush]="login">Login</a></span>
     </div>
-</div>
+  </div>
+
+</ion-content>

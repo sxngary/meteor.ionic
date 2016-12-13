@@ -1,8 +1,11 @@
 import { Component, OnInit } from "@angular/core";
+import { NavController, NavParams } from 'ionic-angular';
 import { Meteor } from "meteor/meteor";
-import { Router } from '@angular/router';
 
 import template from "./landing.component.html";
+import { DashboardComponent } from "../dashboard/dashboard.component";
+import {LoginComponent} from "../auth/login.component.web";
+import {SignupComponent} from "../auth/signup.component";
 
 @Component({
     selector: "landing",
@@ -10,9 +13,12 @@ import template from "./landing.component.html";
 })
 
 export class LandingComponent implements OnInit {
-    constructor(private router: Router) {
+    login = LoginComponent;
+    signup = SignupComponent;
+
+    constructor(private navCtrl: NavController, private navParams: NavParams) {
         if(Meteor.userId()){
-            this.router.navigate(['/dashboard']);
+            this.navCtrl.setRoot(DashboardComponent);
         }
     }
 

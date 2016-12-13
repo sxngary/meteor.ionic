@@ -1,44 +1,79 @@
-<section class="assigmnet hide-sm">
-    <section class="col s6 m7 l8">
-        <section class="assigm-box bt-shadow">
-            <h2>Assessments</h2>
-            <ul>
-                <li>
-                    <p class="assign-title"><a href="javascript:void(0);">Patients with Pain</a></p>
-                    <p class="assign-content">The Screener and Opioid Assessment for Patients with Pain (SOAPP) Version 1.0 is a tool for clinicians to help determine how much monitoring a patient on long-term opioid</p>
-                </li>
-                <li>
-                    <p class="assign-title"><a href="javascript:void(0);">Patients with Pain</a></p>
-                    <p class="assign-content">The Screener and Opioid Assessment for Patients with Pain (SOAPP) Version 1.0 is a tool for clinicians to help determine how much monitoring a patient on long-term opioid</p>
-                </li>
-                <li>
-                    <p class="assign-title"><a href="javascript:void(0);">Patients with Pain</a></p>
-                    <p class="assign-content">The Screener and Opioid Assessment for Patients with Pain (SOAPP) Version 1.0 is a tool for clinicians to help determine how much monitoring a patient on long-term opioid</p>
-                </li>
-            </ul>
-            <span class="seeall"><a href="javascript:void(0);">See all....</a></span>
-        </section>
-    </section>
-    <section class="col s6 m5 l4">
-        <section class="news-box bt-shadow">
-            <h2>Inbox</h2>
-            <ul>
-                <li> <i class="zmdi zmdi-accounts-alt"></i>
-                    <p class="newstitle">Agreement Name</p>
-                    <p class="newscontent">Lorem Ipsum is simply dummy text of the printing </p>
-                </li>
-                <li> <i class="zmdi zmdi-plus-square"></i>
-                    <p class="newstitle">Lab Result</p>
-                    <p class="newscontent">Lorem Ipsum is simply dummy text of the printing </p>
-                </li>
-                <li> <i class="zmdi zmdi-account"></i>
-                    <p class="newstitle">John Doe</p>
-                    <p class="newscontent">Lorem Ipsum is simply dummy text of the printing </p>
-                </li>
-            </ul>
-            <span class="seeall"><a href="javascript:void(0);">See all....</a></span>
-        </section>
-    </section>
-</section>
+<ion-header class="dashboard_head header-dash">
+  <ion-navbar>
+   <button ion-button icon-only menuToggle>
+      <ion-icon name="menu"></ion-icon> 
+    </button>
+    <div class="top_title">
+      DASHBOARD
+    </div>
+    <div class="left_icon">
+    	 <img src="/assets/img/bell1.png" alt=""/>
+         <img src="/assets/img/mail1.png" alt=""/>
+    </div>
+  </ion-navbar>
+</ion-header>
 
-<!--<csv-upload #upload></csv-upload>-->
+<ion-content class="content1">
+ 	<div class="dashboard_content">
+    	<ion-grid>
+          <ion-row>
+            <ion-col width-50>
+            	<ion-card>
+                      <ion-card-content>
+                        <img src="/assets/img/letter1.png" alt=""/>
+                        <span>Message</span>
+                      </ion-card-content>
+				</ion-card>
+            </ion-col>
+            <ion-col width-50>
+            	<ion-card>
+                      <ion-card-content>
+                        <img src="/assets/img/knowledge1.png" alt=""/>
+                        <span>Knowledge Base</span>
+                      </ion-card-content>
+				</ion-card>
+            </ion-col>
+          </ion-row>
+          
+          <ion-row>
+            <ion-col width-50>
+            	<ion-card>
+                      <ion-card-content>
+                     <img src="/assets/img/question1.png" alt=""/>
+                        <span>Questionnaire</span>
+                      </ion-card-content>
+				</ion-card>
+            </ion-col>
+            <ion-col width-50>
+            	<ion-card>
+                      <ion-card-content>
+                        <img src="/assets/img/lab1.png" alt=""/>
+                        <span>Lab Reports</span>
+                      </ion-card-content>
+				</ion-card>
+            </ion-col>
+          </ion-row>
+          
+          <ion-row>
+            <ion-col width-50 [navPush]="agreements">
+            	<ion-card>
+                      <ion-card-content>
+                        <img src="/assets/img/agreement1.png" alt=""/>
+                        <span>Agreements</span>
+                      </ion-card-content>
+				</ion-card>
+            </ion-col>
+            <ion-col width-50 [navPush]="profile">
+            	<ion-card>
+                      <ion-card-content>
+                        <img src="/assets/img/user1.png" alt=""/>
+                        <span>My Account</span>
+                      </ion-card-content>
+				</ion-card>
+            </ion-col>
+          </ion-row>
+          
+		</ion-grid>
+    </div>
+   
+</ion-content>

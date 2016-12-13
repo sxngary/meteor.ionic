@@ -14,13 +14,16 @@ function setClass(css) {
 }
 
 Meteor.startup(() => {
-  if (Meteor.isCordova) {
+  /*if (Meteor.isCordova) {
     ionicSelector("app");
     setClass('mobile');
   }
   else {
     setClass('web');
-  }
+  }*/
+  
+  ionicSelector("app");
+  setClass('mobile');
 
   const platform = platformBrowserDynamic();
   platform.bootstrapModule(AppModule);

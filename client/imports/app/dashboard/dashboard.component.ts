@@ -1,7 +1,11 @@
 import { Component, OnInit } from "@angular/core";
+import { NavController, NavParams } from 'ionic-angular';
 import { Meteor } from "meteor/meteor";
 
 import { ProviderService } from "../../services/provider.service";
+import { LandingComponent } from "../layout/landing.component";
+import { AgreementsComponent } from "../agreements/agreements.component";
+import { PatientDetailsComponent } from "../patient/details.component";
 
 import template from "./dashboard.html";
 
@@ -11,8 +15,15 @@ import template from "./dashboard.html";
 })
 
 export class DashboardComponent implements OnInit {
-    constructor(private providerService: ProviderService) {
+    agreements = AgreementsComponent;
+    profile = PatientDetailsComponent;
+
+    constructor(private navCtrl: NavController, private navParams: NavParams, private providerService: ProviderService) {
         $('.collapsible').collapsible();
+
+        if(! Meteor.userId()){
+            this.navCtrl.setRoot(LandingComponent);
+        }
     }
 
     ngOnInit() {

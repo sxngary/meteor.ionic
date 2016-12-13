@@ -1,3 +1,15 @@
+<ion-header>
+  <ion-navbar primary>
+    <button menuToggle="left">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      List Agreements
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="has-header">
     <!--main container-->
     <section *ngIf="agreementData">
         <h2>Agreements</h2>
@@ -7,7 +19,7 @@
             <section class="col s12 wht-bg mar-tp5 mar-bt5 bt-shadow" *ngFor="let items of agreementData" >
                 <section class="pateint-list">
                     
-                        <h2 class="pateint-name capitalize"><a href="javascript:void(0);" [routerLink]="['/agreements', items._id]">{{items.agreementName}}</a></h2>
+                        <h2 class="pateint-name capitalize"><a href="javascript:void(0);" (click)="viewDetails(items._id)">{{items.agreementName}}</a></h2>
                         <address >
                              {{items.agreementTitle}}
                         </address>
@@ -21,3 +33,4 @@
             
         </section>
     </section>
+</ion-content>

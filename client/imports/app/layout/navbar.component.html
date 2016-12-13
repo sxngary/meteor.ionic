@@ -4,7 +4,7 @@
     <h2>{{user.profile.firstName}} {{user.profile.lastName}}</h2>
     </li>
     <ul class="collapsible collapsible-accordion">
-        <li class="bold"><a href="javascript:void(0);" class="collapsible-header waves-effect waves-tea" [routerLink]="['/dashboard']"><i class="zmdi zmdi-view-dashboard"></i> Dashboard</a></li>
+        <li class="bold"><a href="javascript:void(0);" class="collapsible-header waves-effect waves-tea" [navPush]="dashboard"><i class="zmdi zmdi-view-dashboard"></i> Dashboard</a></li>
         <li class="bold"><a href="javascript:void(0);" class="collapsible-header  waves-effect"><i class="zmdi zmdi-plus-square"></i> Message<span><i class="zmdi zmdi-chevron-right"></i></span></a>
         <section class="collapsible-body">
             <ul>
@@ -17,8 +17,8 @@
         <li class="bold"><a href="javascript:void(0);"class="collapsible-header  waves-effect"><i class="zmdi zmdi-book-image"></i> Knowledge Base</a></li>
         <li class="bold"><a href="javascript:void(0);" class="collapsible-header  waves-effect"><i class="zmdi zmdi-rss"></i> Inbox</a></li>
         <li class="bold"><a href="javascript:void(0);" class="collapsible-header  waves-effect"><i class="zmdi zmdi-chart"></i> Questionnaire</a></li>
-        <li class="bold"><a href="javascript:void(0);" class="collapsible-header  waves-effect" [routerLink]="['/agreements']"><i class="zmdi zmdi-laptop"></i> Agreements</a></li>
-        <li class="bold"><a href="javascript:void(0);" class="collapsible-header  waves-effect" [routerLink]="['/profile']"><i class="zmdi zmdi-account"></i> My Account</a></li>
+        <li class="bold"><a href="javascript:void(0);" class="collapsible-header  waves-effect" [navPush]="agreements"><i class="zmdi zmdi-laptop"></i> Agreements</a></li>
+        <li class="bold"><a href="javascript:void(0);" class="collapsible-header  waves-effect" [navPush]="profile"><i class="zmdi zmdi-account"></i> My Account</a></li>
     </ul>
     
     <li class="bold"><a href="javascript:void(0);" class="waves-effect" [hidden]="!user" (click)="logout()">

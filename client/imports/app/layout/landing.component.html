@@ -1,13 +1,12 @@
-<section class="top-content">
-    <div class="col s12 ">
-        <div class="col s8">
-            Welcome Page Coming Soon...
+<ion-content padding >
+  <div class="main_con">
+   		<div class="logo_dv">
+        	<img src="../assets/img/logo1.png" alt=""/>
+        </div>	
+        <p>Regulated Pharma Manager</p>
+        <div class="bottom_sec">
+        	<button ion-button full [navPush]="login">Sign In</button>
+            <button ion-button full class="sign_up" [navPush]="signup">Sign Up</button>
         </div>
-        <div class="col s6">
-        <a href="javascript:void(0);" [routerLink]="['login']">Login</a>
-        </div>
-        <div class="col s6">
-        <a href="javascript:void(0);" [routerLink]="['signup']">Signup</a>
-        </div>
-    </div>
-</section>
+  </div>
+</ion-content>
