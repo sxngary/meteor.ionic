@@ -90,7 +90,7 @@ export class SignupComponent extends MeteorComponent implements OnInit {
                           this.error = err;
                         });
                     } else {
-                        this.navCtrl.push(DashboardComponent);
+                        this.navCtrl.setRoot(DashboardComponent);
                     }
                 });
             }

@@ -62,7 +62,7 @@ Meteor.methods({
     "fetchProvider": () => {
         let user = Meteor.user();
 
-        if (typeof user.providerId == "undefined") {
+        if (typeof user !== "object" || typeof user.providerId == "undefined") {
             return;
         }
 

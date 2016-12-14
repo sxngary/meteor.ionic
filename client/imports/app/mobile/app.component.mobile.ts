@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import {Component, ViewChild} from "@angular/core";
 import { InjectUser } from 'angular2-meteor-accounts-ui';
 import {MenuController, Platform, App, Nav} from "ionic-angular";
@@ -50,6 +51,11 @@ export class AppMobileComponent {
     this.menu.close();
     // navigate to the new page if it is not the current page
     this.nav.setRoot(page.component);
+  }
+
+  logout() {
+    Meteor.logout();
+    this.nav.setRoot(LandingComponent);
   }
 
 }

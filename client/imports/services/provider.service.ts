@@ -13,6 +13,9 @@ export class ProviderService extends MeteorComponent {
   fetchData() {
     this.call('fetchProvider', (err, res) => {
       //console.log("fetchProvider:", res);
+      if (typeof res !== "object") {
+        return;
+      }
       res.profile.fullName = res.profile.firstName + " " + res.profile.lastName;
       this.user = res;
       this.userId = res._id;

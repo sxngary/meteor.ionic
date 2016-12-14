@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
                       this.error = err;
                     });
                 } else {
-                    this.navCtrl.push(DashboardComponent);
+                    this.navCtrl.setRoot(DashboardComponent);
                 }
             });
         }

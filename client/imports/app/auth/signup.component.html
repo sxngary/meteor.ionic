@@ -31,7 +31,7 @@
                 </div>
               
               <ion-item>
-                <ion-input formControlName="password" type="text" placeholder="Password"></ion-input>
+                <ion-input formControlName="password" type="password" placeholder="Password"></ion-input>
               </ion-item>
               <div *ngIf="signupForm.controls['password'].errors && signupForm.controls['password'].touched" class="error">
                     <div [hidden]="!signupForm.controls['password'].errors.required">Password is required.</div>
