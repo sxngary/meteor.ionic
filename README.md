@@ -1,2 +1,2 @@
-# Regulated pharma manager patient portal
+# meteor ionic portal
 
